@@ -7,13 +7,25 @@ public class characterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
 
+    
+
     private Rigidbody2D rigidbody2D;
-    private bool isGrounded, jumping;
+    private bool isGrounded, jumping, isWalkable = true;
     
 
     private SpriteRenderer spriteRenderer;
 
     private Animator animator;
+
+    public LayerMask interactableLayer;
+
+    public static characterController Instance;
+
+    
+    void Awake()
+    {
+        Instance = this;
+    }
 
     
     void Start()
@@ -35,17 +47,30 @@ public class characterController : MonoBehaviour
             jumping = true;
         }
 
+        
+
+        
+
+        
+
     }
 
+    private void Interact(){
+            NPCController.Instance.Interact();
+        }
+
     
-    void FixedUpdate()
+
+    
+    public void HandleUpdate()
     {    
 
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-        rigidbody2D.velocity = new Vector2(moveInput * moveSpeed, rigidbody2D.velocity.y);
+        if(isWalkable){
+            float moveInput = Input.GetAxisRaw("Horizontal");
+            animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+            rigidbody2D.velocity = new Vector2(moveInput * moveSpeed, rigidbody2D.velocity.y);
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+            if(Input.GetKey(KeyCode.Space)){
             if(jumping){
                 isGrounded = false;         
             print("jump");
@@ -57,9 +82,19 @@ public class characterController : MonoBehaviour
             
         }
 
+        if(Input.GetKeyDown(KeyCode.Z)){
+            Interact();
+        }
+        }
+
+        
+        
+
         animator.SetBool("isGrounded", isGrounded);
-        print("IsGrounded : " + isGrounded);
+        
     }
+
+    
 
     
     void OnCollisionEnter2D(Collision2D other)
@@ -67,5 +102,22 @@ public class characterController : MonoBehaviour
         if(other.gameObject.CompareTag("ground")){
             isGrounded = true;
         }
+
+        if(other.gameObject.CompareTag("npc")){                       
+            other.gameObject.GetComponent<Collider2D>().enabled = false;
+            
+            
+                       
+        }
+
+        
+
+        
+        
     }
+    
+    
+
+    
+    
 }

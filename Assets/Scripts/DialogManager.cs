@@ -35,6 +35,7 @@ public class DialogManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         dialogBox.SetActive(true);
         StartCoroutine(TypeDialog(dialog.Lines[0]));
+        AudioManager.Instance.writingSource.PlayOneShot(AudioManager.Instance.writingSource.clip);
         
 
     }
@@ -48,22 +49,28 @@ public class DialogManager : MonoBehaviour
             yield return new  WaitForSeconds(1f / letterPerSecond);
         }
         isTyping = false;
+        AudioManager.Instance.writingSource.Stop();
     }
 
     
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && !isTyping){
+            
             currentLine++;
             if(currentLine < dialog1.Lines.Count){
+                AudioManager.Instance.writingSource.PlayOneShot(AudioManager.Instance.writingSource.clip);
                 StartCoroutine(TypeDialog(dialog1.Lines[currentLine]));
             }else if(currentLine == 6){
                 selectMenu.SetActive(true);
                 spaceKeyImage.SetActive(false);
+                AudioManager.Instance.writingSource.Stop();
             }            
             else{
                 dialogBox.SetActive(false);
                 currentLine = 0;
+                AudioManager.Instance.writingSource.Stop();
+                selectMenu.SetActive(false);
                 
             }
             print("space");

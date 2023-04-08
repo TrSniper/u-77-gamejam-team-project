@@ -3,16 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ground
+  - npc
+  - npc1
+  - wall2
+  - wall1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ground
   - Water
   - UI
-  - 
-  - 
+  - interactable
+  - player
   - 
   - 
   - 
@@ -40,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 408603797
+    locked: 0
+  - name: Midground
+    uniqueID: 2918007321
+    locked: 0
+  - name: Foreground
+    uniqueID: 3426408221
+    locked: 0
+  - name: Interactable
+    uniqueID: 2531562559
     locked: 0
