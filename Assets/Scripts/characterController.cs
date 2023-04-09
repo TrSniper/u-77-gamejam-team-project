@@ -11,6 +11,9 @@ public class characterController : MonoBehaviour
 
     private Rigidbody2D rigidbody2D;
     private bool isGrounded, jumping, isWalkable = true;
+
+    public bool hurted;
+    
     
 
     private SpriteRenderer spriteRenderer;
@@ -47,6 +50,8 @@ public class characterController : MonoBehaviour
             jumping = true;
         }
 
+        animator.SetBool("hurt", hurted);
+
         
 
         
@@ -63,9 +68,11 @@ public class characterController : MonoBehaviour
 
     
     public void HandleUpdate()
-    {    
+    {
 
-        if(isWalkable){
+        
+
+        if(isWalkable && !hurted){
             float moveInput = Input.GetAxisRaw("Horizontal");
             animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
             rigidbody2D.velocity = new Vector2(moveInput * moveSpeed, rigidbody2D.velocity.y);
@@ -74,6 +81,7 @@ public class characterController : MonoBehaviour
             if(jumping){
                 isGrounded = false;         
             print("jump");
+            AudioManager.Instance.PlaySFX("jump");
             animator.SetTrigger("jump");
             rigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumping = false;
