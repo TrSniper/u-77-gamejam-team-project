@@ -11,6 +11,8 @@ public class DialogManager1 : MonoBehaviour
 
     [SerializeField] int letterPerSecond;
 
+    [SerializeField] GameObject keyboardTutorial;
+
     private static int NPCCount = 0;
 
     public event Action OnShowDialog;
@@ -29,7 +31,7 @@ public class DialogManager1 : MonoBehaviour
     
     void Awake()
     {
-        Instance = this;        
+        Instance = this;                
         
     }
 
@@ -48,6 +50,7 @@ public class DialogManager1 : MonoBehaviour
             }else{
                 dialogBox.SetActive(false);
                 OnHideDialog?.Invoke();
+                keyboardTutorial.SetActive(true);
                 currentLine = 0;
                 AudioManager.Instance.writingSource.Stop();
                 
@@ -60,9 +63,11 @@ public class DialogManager1 : MonoBehaviour
     }
 
     public void ShowDialog(Dialog dialog){
-        print("InShowDialog");
+        
         OnShowDialog?.Invoke();
-        this.dialog1 = dialog;       
+        keyboardTutorial.SetActive(false);
+        this.dialog1 = dialog;
+
         dialogBox.SetActive(true);        
         StartCoroutine(TypeDialog(dialog1.Lines[0]));
         AudioManager.Instance.writingSource.PlayOneShot(AudioManager.Instance.writingSource.clip);

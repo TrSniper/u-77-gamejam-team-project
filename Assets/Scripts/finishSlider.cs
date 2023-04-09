@@ -1,25 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class finishSlider : MonoBehaviour
 {
     public GameObject recScreenPanel, finishSliderText;
+    public Text text;
+
+    private bool oneShot;
 
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player")){
+        if(!oneShot){
+            if(Collectibles.iconYoutube == 7){
+                if(other.gameObject.CompareTag("Player")){
             recScreenPanel.SetActive(false);
             SliderMovement.Instance.isMoving = false;
             StartCoroutine(showFinishText());
+            oneShot = !oneShot;
+            }
+            }else{
+                print("hata");
+                StartCoroutine(showFinishText1());
+            }
         }
+
+        
     }
 
     IEnumerator showFinishText(){
-        finishSliderText.SetActive(true);
-        print("kayıt başladı");
+        text.text = "Kayıt Tamamlandı...";
+        finishSliderText.SetActive(true);        
+        yield return new WaitForSeconds(1f);
+        finishSliderText.SetActive(false);
+    }
+
+    IEnumerator showFinishText1(){
+        text.text = "Tüm toplanabilirleri toplaman gerekiyor!";
+        finishSliderText.SetActive(true);        
         yield return new WaitForSeconds(1f);
         finishSliderText.SetActive(false);
     }
 }
+

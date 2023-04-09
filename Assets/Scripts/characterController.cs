@@ -118,6 +118,11 @@ public class characterController : MonoBehaviour
                        
         }
 
+        if(other.gameObject.CompareTag("obstacle")){
+            hurted = true;
+            
+        }
+
         
 
         

@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
     [SerializeField] GameObject dialogBox;
-    [SerializeField] Text dialogText;
+    [SerializeField] Text dialogText, escapeText;
 
     [SerializeField] int letterPerSecond;
 
     [SerializeField] Dialog dialog1;
 
     [SerializeField] GameObject selectMenu;
+
+    [SerializeField] GameObject escapeState;
+
+    
 
     [SerializeField] GameObject spaceKeyImage;
     
@@ -58,6 +63,7 @@ public class DialogManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && !isTyping){
             
             currentLine++;
+            print("currentLine : " + currentLine);
             if(currentLine < dialog1.Lines.Count){
                 AudioManager.Instance.writingSource.PlayOneShot(AudioManager.Instance.writingSource.clip);
                 StartCoroutine(TypeDialog(dialog1.Lines[currentLine]));
@@ -65,6 +71,7 @@ public class DialogManager : MonoBehaviour
                 selectMenu.SetActive(true);
                 spaceKeyImage.SetActive(false);
                 AudioManager.Instance.writingSource.Stop();
+                currentLine++;
             }            
             else{
                 dialogBox.SetActive(false);
@@ -72,9 +79,35 @@ public class DialogManager : MonoBehaviour
                 AudioManager.Instance.writingSource.Stop();
                 selectMenu.SetActive(false);
                 
+                
             }
             print("space");
             
         }
+
+        if(currentLine == 7){
+            if(Input.GetKeyDown(KeyCode.E)){
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+                }
+                if(Input.GetKeyDown(KeyCode.Escape)){
+                    dialogBox.SetActive(false);
+                    currentLine = 0;
+                    AudioManager.Instance.writingSource.Stop();
+                    selectMenu.SetActive(false);
+                    print("yakışmadı");
+                    escapeState.SetActive(true);
+                    StartCoroutine(escapeTheGame());
+
+
+                }
+        }
+    }
+
+    IEnumerator escapeTheGame(){
+        escapeText.text = "Yakışmadı, Oyun Sonlanıyor...";
+        yield return new WaitForSeconds(2f);
+        
+        Application.Quit();
     }
 }

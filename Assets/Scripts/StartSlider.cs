@@ -5,16 +5,23 @@ using UnityEngine;
 public class StartSlider : MonoBehaviour
 {
 
+    private bool oneShot;
+
     public GameObject recScreenPanel, startRecordingText;
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player")){
+        if(!oneShot){
+            if(other.gameObject.CompareTag("Player")){
             SliderMovement.Instance.isMoving = true;
             recScreenPanel.SetActive(true);
             StartCoroutine(showRecordingText());
+            oneShot = !oneShot;
         }
 
+
+        }
+        
     }
 
     IEnumerator showRecordingText(){
