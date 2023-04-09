@@ -19,6 +19,8 @@ public class EntryDialog : MonoBehaviour
 
     private bool isTyping, test = true;
 
+    public static int theme = 1;
+
     
 
     
@@ -70,7 +72,15 @@ public class EntryDialog : MonoBehaviour
         if(!isTyping && test){
             StartCoroutine(WaitForSecond());
             print("yazı bitti");
-            AudioManager.Instance.PlayMusic("theme1");
+            if(theme == 0){
+                AudioManager.Instance.PlayMusic("theme1");
+                theme++;
+            }else if(theme == 1){
+                AudioManager.Instance.PlayMusic("theme2");
+                
+
+            }
+            
             test = false;
         }
     }

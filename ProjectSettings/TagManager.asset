@@ -12,6 +12,7 @@ TagManager:
   - verticalObstacle
   - icon_youtube
   - obstacle
+  - icon_form
   layers:
   - Default
   - TransparentFX
