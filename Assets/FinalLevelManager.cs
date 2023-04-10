@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FinalLevelManager : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class FinalLevelManager : MonoBehaviour
                 text.text = "Tebrikler mezun oldun...";
                 AudioManager.Instance.PlaySFX("clap");
                 panel.SetActive(true);
+                StartCoroutine(WaitForCredit());
             }else{
                 panel.SetActive(true);
                 StartCoroutine(Wait("Gerekli Tüm Şeyleri Toplamadın!"));
@@ -54,6 +56,13 @@ public class FinalLevelManager : MonoBehaviour
         panel.SetActive(true);
         yield return new WaitForSeconds(2f);
         panel.SetActive(false);
+        
+    }
+
+    IEnumerator WaitForCredit(){
+        
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }
 }
