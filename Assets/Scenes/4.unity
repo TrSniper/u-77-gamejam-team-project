@@ -6613,6 +6613,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2982780967071064869, guid: 2c965060b087ff94da837151e0ccd8d1, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982780967071064869, guid: 2c965060b087ff94da837151e0ccd8d1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3129069014629305124, guid: 2c965060b087ff94da837151e0ccd8d1, type: 3}
       propertyPath: sfxSounds.Array.data[0].clip
       value: 
