@@ -42,6 +42,12 @@ Bu zorlu yolculukları başarıyla aştıktan sonra Akademi mezunu olabilir.</p>
 <hr>
 
 ![image](https://user-images.githubusercontent.com/79882285/230851830-53ee1a64-f354-4896-a829-be3e5272b246.png)
+![image](https://user-images.githubusercontent.com/79882285/230855786-f9791974-01a6-40fa-8c6c-d9f90078d65f.png)
+![image](https://user-images.githubusercontent.com/79882285/230856800-339875be-a67d-46e0-bd15-1d8aa38c9f91.png)
+![image](https://user-images.githubusercontent.com/79882285/230856869-17fb4299-dc19-4bd3-be18-05cff8eb3c66.png)
+
+
+
 
 ## In Game ##
 
