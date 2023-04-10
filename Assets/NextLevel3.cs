@@ -4,37 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour
+public class NextLevel3 : MonoBehaviour
 {
     public GameObject nextLevelGame;
-
-    
-
     public Text text;
     
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player")){
-            if(Collectibles.iconYoutube == 7){
-            AudioManager.Instance.PlaySFX("level-pass");
-            StartCoroutine(WaitForSecondMethod("Tebrikler Videoyu Çektin, Sisteme yükleniyor..."));                    
-                        
-        }else{
-            StartCoroutine(WaitForSecondMethod1("Hepsini toplamadan bir sonraki bölüme geçemezsin !!"));
-            
-
+            if(Collectibles.iconCSharp == 7){
+                AudioManager.Instance.PlaySFX("level-pass");
+                StartCoroutine(WaitForSecondMethod("Kod yazmayı öğrendin."));
+                             ;
+            }else{
+                nextLevelGame.SetActive(true);
+                StartCoroutine(WaitForSecondMethod1("Hepsini toplamadan bir sonraki bölüme geçemezsin !!"));
+                print("sonraki level");
+            }
         }
-
-        
-
-        }
-        
-
-        
-
-
-
-        
     }
 
     IEnumerator WaitForSecondMethod(string myText){
@@ -56,6 +43,4 @@ public class NextLevel : MonoBehaviour
         
         
     }
-
-    
 }
