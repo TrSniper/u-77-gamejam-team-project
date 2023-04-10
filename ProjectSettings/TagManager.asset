@@ -13,6 +13,15 @@ TagManager:
   - icon_youtube
   - obstacle
   - icon_form
+  - icon_csharp
+  - level3
+  - level2
+  - final_level1
+  - final_level2
+  - final_level3
+  - final_level4
+  - clap-sound
+  - icon_mezuniyet
   layers:
   - Default
   - TransparentFX

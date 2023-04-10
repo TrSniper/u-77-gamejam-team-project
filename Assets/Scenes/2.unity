@@ -10056,6 +10056,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3129069014629305124, guid: 2c965060b087ff94da837151e0ccd8d1, type: 3}
+      propertyPath: sfxSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 52fb80ddd6d260f459b8ee0739dde85c, type: 3}
     - target: {fileID: 3129069014629305125, guid: 2c965060b087ff94da837151e0ccd8d1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -10307,6 +10311,10 @@ PrefabInstance:
     - target: {fileID: 6267234044556198929, guid: 9eda5919fe9a6584facab3b442079e4c, type: 3}
       propertyPath: m_Name
       value: portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267234044556198929, guid: 9eda5919fe9a6584facab3b442079e4c, type: 3}
+      propertyPath: m_TagString
+      value: level2
       objectReference: {fileID: 0}
     - target: {fileID: 6267234044556198930, guid: 9eda5919fe9a6584facab3b442079e4c, type: 3}
       propertyPath: m_RootOrder

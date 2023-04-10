@@ -178,9 +178,11 @@ MonoBehaviour:
   musicSounds:
   - soundName: theme1
     clip: {fileID: 8300000, guid: 90dc08b3c78ae0d4fa49392c48716768, type: 3}
+  - soundName: theme2
+    clip: {fileID: 8300000, guid: 1ff2d83e17ad30e48bb6a54e75b9a127, type: 3}
   sfxSounds:
   - soundName: entry-screen
-    clip: {fileID: 8300000, guid: 52fb80ddd6d260f459b8ee0739dde85c, type: 3}
+    clip: {fileID: 8300000, guid: 3bd9a4619e0013f4ea520ace3aaae48e, type: 3}
   - soundName: character-dead
     clip: {fileID: 8300000, guid: 1b9a995207194bc4fb97b9f310d3e896, type: 3}
   - soundName: jump
