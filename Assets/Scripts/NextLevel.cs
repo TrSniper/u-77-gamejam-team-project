@@ -20,8 +20,7 @@ public class NextLevel : MonoBehaviour
             StartCoroutine(WaitForSecondMethod("Tebrikler Videoyu Çektin, Sisteme yükleniyor..."));                    
                         
         }else{
-            StartCoroutine(WaitForSecondMethod1("Hepsini toplamadan bir sonraki bölüme geçemezsin !!"));
-            
+            StartCoroutine(WaitForSecondMethod1("Hepsini toplamadan bir sonraki bölüme geçemezsin !!"));          
 
         }
 

@@ -28,10 +28,7 @@ public class EntryDialog : MonoBehaviour
     {
         
         Instance = this;
-        if(count == 0){
-            Instance.ShowDialog();
-            
-        }
+        Instance.ShowDialog();
         
              
              
@@ -40,11 +37,8 @@ public class EntryDialog : MonoBehaviour
     
     void Start()
     {
-        if(count == 0){
-            AudioManager.Instance.PlaySFX("entry-screen");
+        AudioManager.Instance.PlaySFX("entry-screen");
         AudioManager.Instance.writingSource.PlayOneShot(AudioManager.Instance.writingSource.clip); 
-        count++;
-        }  
     }
 
     public void ShowDialog(){       

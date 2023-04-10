@@ -13,4 +13,5 @@ public class anim_1 : MonoBehaviour
         anim = this;
     }
     
+    
 }
