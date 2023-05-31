@@ -10,6 +10,7 @@ public class GameManagerStart : MonoBehaviour
     {
         Collectibles.iconYoutube = 0;
         Collectibles.lives = 3;
+        AudioManager.Instance.PlayMusic("theme2");
     }
 
     public void ExitGame(){
@@ -18,6 +19,7 @@ public class GameManagerStart : MonoBehaviour
 
     public void StartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        AudioManager.Instance.musicSource.Stop();
 
     }
 }

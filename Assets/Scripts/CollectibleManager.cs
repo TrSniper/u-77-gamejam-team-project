@@ -17,5 +17,29 @@ public class CollectibleManager : MonoBehaviour
             youtubeCountText.text = Collectibles.iconYoutube.ToString();
             print("icon_youtube : " + Collectibles.iconYoutube);
         }
+
+        if(other.gameObject.CompareTag("icon_form")){
+            Destroy(other.gameObject);
+            AudioManager.Instance.PlaySFX("collectible");
+            Collectibles.iconForm++;
+            youtubeCountText.text = Collectibles.iconForm.ToString();
+            print("icon_form : " + Collectibles.iconForm);
+        }
+
+        if(other.gameObject.CompareTag("icon_csharp")){
+            Destroy(other.gameObject);
+            AudioManager.Instance.PlaySFX("collectible");
+            Collectibles.iconCSharp++;
+            youtubeCountText.text = Collectibles.iconCSharp.ToString();
+            print("icon_charp : " + Collectibles.iconCSharp);
+        }
+
+        if(other.gameObject.CompareTag("icon_mezuniyet")){
+            Destroy(other.gameObject);
+            AudioManager.Instance.PlaySFX("collectible");
+            Collectibles.iconGraduate++;
+            youtubeCountText.text = Collectibles.iconGraduate.ToString();
+            print("icon_charp : " + Collectibles.iconGraduate);
+        }
     }
 }

@@ -8,35 +8,53 @@ public class NextLevel : MonoBehaviour
 {
     public GameObject nextLevelGame;
 
+    
+
     public Text text;
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(Collectibles.iconYoutube == 7){
+        if(other.gameObject.CompareTag("Player")){
+            if(Collectibles.iconYoutube == 7){
             AudioManager.Instance.PlaySFX("level-pass");
-            StartCoroutine(WaitForSecondMethod());
-            print("sonraki level");
-            
+            StartCoroutine(WaitForSecondMethod("Tebrikler Videoyu Çektin, Sisteme yükleniyor..."));                    
+                        
         }else{
-            StartCoroutine(WaitForSecondMethod2());
-            print("sonraki level");
+            StartCoroutine(WaitForSecondMethod1("Hepsini toplamadan bir sonraki bölüme geçemezsin !!"));          
 
         }
-    }
 
-    IEnumerator WaitForSecondMethod(){
-        text.text = "Tebrikler Videoyu Çektin, Sisteme yükleniyor...";
-        nextLevelGame.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        nextLevelGame.SetActive(false);
+        
+
+        }
+        
+
+        
+
+
+
         
     }
 
-    IEnumerator WaitForSecondMethod2(){
-        text.text = "Hepsini toplamadan bir sonraki bölüme geçemezsin !!";
+    IEnumerator WaitForSecondMethod(string myText){
+        text.text = myText;
         nextLevelGame.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         nextLevelGame.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); 
+        
         
     }
+
+    IEnumerator WaitForSecondMethod1(string myText){
+        text.text = myText;
+        nextLevelGame.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        nextLevelGame.SetActive(false);
+        
+        
+        
+    }
+
+    
 }

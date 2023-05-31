@@ -12,6 +12,7 @@ public class verticalObstacleMovement : MonoBehaviour
             characterController.Instance.hurted = true;
             Collectibles.lives--;
             Collectibles.iconYoutube = 0;
+            Collectibles.iconForm = 0;
             print("hurted : " + characterController.Instance.hurted);
             AudioManager.Instance.PlaySFX("character-dead");
             AudioManager.Instance.musicSource.mute = true;

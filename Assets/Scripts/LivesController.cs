@@ -9,7 +9,7 @@ public class LivesController : MonoBehaviour
     void Awake()
     {
         switch(Collectibles.lives){
-            case 3:
+            case 3:                
                 break;
             case 2:
                 gameObject.transform.GetChild(2).gameObject.SetActive(false);
@@ -20,6 +20,12 @@ public class LivesController : MonoBehaviour
                 break;
             case 0:
                 print("canın bitti");
+                Collectibles.lives = 3;
+                Collectibles.iconCSharp = 0;
+                Collectibles.iconForm = 0;
+                Collectibles.iconGraduate = 0;
+                Collectibles.iconYoutube = 0;
+                print("can yenilendi");
                 break;
             default:
                 break;

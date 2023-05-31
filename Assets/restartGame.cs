@@ -14,6 +14,10 @@ public class restartGame : MonoBehaviour
             characterController.Instance.hurted = true;
             Collectibles.lives--;
             Collectibles.iconYoutube = 0;
+            Collectibles.iconCSharp = 0;
+            Collectibles.iconForm = 0;
+            Collectibles.iconGraduate = 0;
+            print("csharp : " + Collectibles.iconCSharp);
             print("hurted : " + characterController.Instance.hurted);
             AudioManager.Instance.PlaySFX("character-dead");
             AudioManager.Instance.musicSource.mute = true;
